@@ -15,15 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\SingleUser\DynamicPartitions.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="DynamicPartitions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\SingleUser\DynamicPartitions.h">
+    <ClInclude Include="DynamicPartitions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
