@@ -34,4 +34,5 @@ public:
 	void printMemoryStatus();
 	bool loadNewJob(Job);
 	bool loadNewJob(std::string, int);
+	bool terminateCurrentJob();
 };
