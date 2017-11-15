@@ -15,14 +15,19 @@ protected:
 	// Memory partitions
 	std::list<MemoryPartition> memory;
 
+	AllocationMethod allocationMethod;
+
 	// Memory Partition operations
-	void allocatePartition(int, int, std::string, Status);
+	void readConfs();
+	std::list<MemoryPartition>::iterator getAvailablePartitionIter(int, AllocationMethod);
+	void mergeEmptyPartitions();
 
 public:
 	// Constructors
 	DynamicPartitions();
-	DynamicPartitions(int);
 
 	// Public methods
 	void printMemoryContents();
+	bool loadNewJob(std::string, int);
+	bool terminateJob(std::string);
 };

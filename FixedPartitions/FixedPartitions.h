@@ -3,20 +3,11 @@
 #include <string>
 #include <vector>
 
-enum Status
-{
-	Free, Busy
-};
+#include "../SingleUser/SingleUser.h"
 
 enum AllocationMethod
 {
 	FCFS, BestFit
-};
-
-struct Job
-{
-	std::string name;
-	int occupiedMemory;
 };
 
 struct MemoryPartition
@@ -35,11 +26,11 @@ protected:
 	AllocationMethod allocationMethod;
 
 	void readPartitionConfs();
+	int getAvailablePartitionIndex(int, AllocationMethod);
 public:
 	FixedPartitions();
 
 	void printMemoryContents();
 	bool loadNewJob(std::string, int);
 	bool terminateJob(std::string);
-	int getAvailablePartitionIndex(int, AllocationMethod);
 };
