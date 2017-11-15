@@ -1,0 +1,6 @@
+# Memory size
++mem_size = 500
+#
+# Job allocation method (FCFS or BestFit), first come first serve or best-fit
++allocation_method=BestFit
+#
