@@ -23,14 +23,11 @@ protected:
 
 	Job currentJob;
 
-	// Protected methods
 	void acceptNewJob(Job);
 public:
-	// Constructors
 	SingleUser();
 	SingleUser(int);
 
-	// Public methods
 	void printMemoryStatus();
 	bool loadNewJob(Job);
 	bool loadNewJob(std::string, int);

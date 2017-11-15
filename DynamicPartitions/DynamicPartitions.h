@@ -3,13 +3,8 @@
 #include <list>
 #include <algorithm>
 
-struct MemoryPartition
-{
-	int size;
-	int address;
-	std::string accessingJob;
-	bool busy;
-};
+#include "../SingleUser/SingleUser.h"
+#include "../FixedPartitions/FixedPartitions.h"
 
 class DynamicPartitions
 {
@@ -21,7 +16,7 @@ protected:
 	std::list<MemoryPartition> memory;
 
 	// Memory Partition operations
-	void allocatePartition(int, int, std::string, bool);
+	void allocatePartition(int, int, std::string, Status);
 
 public:
 	// Constructors

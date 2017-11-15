@@ -6,7 +6,7 @@
 
 DynamicPartitions::DynamicPartitions()
 {
-	allocatePartition(memorySize, 0, "", false);
+	allocatePartition(memorySize, 0, "", Status::Free);
 }
 
 DynamicPartitions::DynamicPartitions(int memorySize)
@@ -21,13 +21,13 @@ void DynamicPartitions::printMemoryContents()
 		std::cout << std::setw(20) << std::left << "Size: " + std::to_string(it.size) + " KB"
 			<< std::setw(20) << "Address: " + std::to_string(it.address) + " KB"
 			<< std::setw(20) << "Accessing Job: " + it.accessingJob
-			<< std::setw(20) << "Status: " + std::string((it.busy) ? "Busy" : "Free") << std::endl;
+			<< std::setw(20) << "Status: " + std::string(it.status == Busy ? "Busy" : "Free") << std::endl;
 	}
 }
 
-void DynamicPartitions::allocatePartition(int size, int address, std::string job, bool busy)
+void DynamicPartitions::allocatePartition(int size, int address, std::string job, Status status)
 {
-	MemoryPartition partition{ size, address, job, busy };
+	MemoryPartition partition{ size, address, job, status };
 
 	auto it = memory.begin();
 

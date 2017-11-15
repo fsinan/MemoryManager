@@ -2,6 +2,7 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+#include <algorithm>
 
 #include "SingleUser.h"
 
@@ -18,7 +19,7 @@ void mainLoop(SingleUser& manager)
 		str >> firstWord;
 
 		// A new job
-		if (firstWord.compare("new-job") == 0)
+		if (firstWord == "new-job")
 		{
 			std::string name;
 			int size;
@@ -28,17 +29,17 @@ void mainLoop(SingleUser& manager)
 			manager.loadNewJob(name, size);
 		}
 		// Ending the current job
-		else if (firstWord.compare("end-job") == 0)
+		else if (firstWord == "end-job")
 		{
 			manager.terminateCurrentJob();
 		}
 		// Displaying the status of the memory
-		else if (firstWord.compare("show-stat") == 0)
+		else if (firstWord == "show-stat")
 		{
 			manager.printMemoryStatus();
 		}
 		// Exit the simulation
-		else if (firstWord.compare("exit") == 0)
+		else if (firstWord == "exit")
 		{
 			std::cout << "Stopping the simulation" << std::endl;
 
@@ -56,9 +57,11 @@ int main()
 
 	while (std::getline(in, currentLine))
 	{
+		currentLine.erase(std::remove(currentLine.begin(), currentLine.end(), ' '), currentLine.end());
+
 		if (currentLine[0] == '+')
 		{
-			std::string cmd = currentLine.substr(1, currentLine.find('='));
+			std::string cmd = currentLine.substr(1, currentLine.find('=') - 1);
 			std::string val = currentLine.substr(currentLine.find('=') + 1, currentLine.length());
 
 			memSize = std::stoi(val);

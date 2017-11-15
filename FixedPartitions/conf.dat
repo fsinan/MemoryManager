@@ -1,0 +1,10 @@
+# Partitions
++partition_size=200
++partition_size=250
++partition_size=25
++partition_size=50
+#
+
+# Job allocation method (FCFS or BestFit), first come first serve or best-fit
++allocation_method=FCFS
+#
