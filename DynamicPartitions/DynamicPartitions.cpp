@@ -54,7 +54,9 @@ void DynamicPartitions::readConfs()
 			{
 				memory.clear();
 
-				MemoryPartition newPartition{ std::stoi(val), 0, "", Free };
+				memorySize = std::stoi(val);
+
+				MemoryPartition newPartition{ memorySize, 0, "", Free };
 				memory.push_back(newPartition);
 			}
 		}
